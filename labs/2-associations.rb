@@ -5,6 +5,14 @@
 
 # 1. write code to display each contact (you can reuse the previous lab's code) and include the contact's company name, e.g.:
 
+contacts = Contact.all
+
+for contact in contacts
+    puts "#{contact.first_name} #{contact.last_name} - #{contact.email} - #{contact.company_id}"
+end
+
+
+
 # ---------------------------------
 # Contacts: 4
 # Andy Jassy - andy@amazon.com - Amazon.com, Inc.

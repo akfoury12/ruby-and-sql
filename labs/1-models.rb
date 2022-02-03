@@ -25,24 +25,34 @@ Contact.destroy_all
 
 # 2. create 1-2 new contacts for each company (they can be made up)
 
-values = {first_name: "Alex", last_name: "Kfoury", email: "akfoury@alixpartners.com", phone_number: "6302928921"}
+# Add a WHERE here and save to a variable named apple
+
+apple = Company.where({name: "Apple"})[0]
+
+values = {first_name: "Alex", last_name: "Kfoury", email: "akfoury@alixpartners.com", phone_number: "6302928921",company_id: apple.id}
 contact = Contact.new(values)
 contact.save
 
-values = {first_name: "Elissa", last_name: "Rabin", email: "Elissa@PIE.ORG", phone_number: "6302928925"}
+values = {first_name: "Elissa", last_name: "Rabin", email: "Elissa@PIE.ORG", phone_number: "6302928925",company_id: apple.id}
 contact = Contact.new(values)
 contact.save
 
 # 3. write code to display how many contacts are in the database AND each contact's info (name, email), e.g.:
 
-puts Contact.all.count
-for a in Contact.all do
-    puts a.first_name
-    puts a.last_name
-    puts a.email
+# puts Contact.all.inspect
+
+# for a in Contact.all do
+#     puts a.first_name
+#     puts a.last_name
+#     puts a.email
+# end
+
+puts "Contacts: #{Contact.all.count}"
+contacts = Contact.all
+
+for contact in contacts
+    puts "#{contact.first_name} #{contact.last_name} - #{contact.email} - #{contact.company_id}"
 end
-
-
 
 # ---------------------------------
 # Contacts: 4

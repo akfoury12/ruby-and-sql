@@ -4,6 +4,11 @@
 # rails runner code-along/2-associations.rb
 
 # 1. Query all of the contacts at Apple Inc.
+apple = Company.where({name: "Apple"})[0]
+
+contacts = Contact.where({company_id: apple.id })
+
+puts contacts
 
 # 2. add association to contacts in Company model
 
